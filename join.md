@@ -10,6 +10,7 @@
    nome
    SELECT `students`.\*, `degrees`.`name`AS `degree_name`, `departments`.`name`AS `department_name`FROM `students` INNER JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id` INNER JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`ORDER BY `students`.`surname`, `students`.`name` ASC;
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+   SELECT `degrees`.`id`, `degrees`.`name`AS `degree_name`, `courses`.`name` AS `course_name`, CONCAT(`teachers`.`name`, ' ', `teachers`.`surname`) AS `teachers` FROM `degrees` INNER JOIN `courses`ON `courses`.`degree_id` = `degrees`.`id` INNER JOIN `course_teacher` ON `course_teacher`.`course_id` = `courses`.`id`INNER JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`;
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
    Matematica (54)
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
